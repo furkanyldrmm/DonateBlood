@@ -1,1 +1,92 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kanbul</title>
+</head>
+<style>
+.btn {
+  font-size: 15px;font-weight: 500;
+
+}
+
+  .card{
+    font-size: 20px;font-weight: 500;
+  }
+  body{
+  width: 100vw;
+  height: 100vh;
+  animation: mymove 5s infinite;
+
+  }
+  .conteiner{
+    height: 100vh;
+    background-color: blue;
+  }
+  .header{
+    margin-top: 50px;
+    background-color:transparent;
+    max-height: 600px;
+
+  }
+  .footer{
+text-align: center;
+  }
+  .mb-4{
+    font-family: "Arial Black",sans-serif	;
+
+
+
+  }
+  @keyframes mymove {
+  0%{
+    background-color: white;
+  }
+  50%{
+    background-color: rgba(255, 0, 0, 0.363);
+  }
+  100%{
+    background-color: white;
+  }
+}
+
+</style>
+<body>
+  <marquee style="font-size: 20px;font-weight: 500 "direction=right>Kan bağışı can kurtarır</marquee>
+
+  <div class="container">
+    <h1 style="text-align: center;" class="mb-4">Kan Bul</h1>
+    <div class="buttons" style="margin-left:50% ;transform: translateX(-16%)">
+
+    <a href="/articles/new" class="btn btn-danger"  style=" margin-right: 20px;">Kan bul</a>
+    <a href="/articles/newb" class="btn btn-danger">Kan ver </a>
+    </div>
+    <div style="    overflow-y: scroll; height: 50%;    " class="header">
+
+    <% articles.forEach(article => { %>
+      <div class="card mt-4" style="opacity: 0.7;">
+        <div class="card-body">
+          <h4 class="card-title"><%= article.title %></h4>
+          <div class="card-subtitle text-muted mb-2">
+            <%= article.createdAt.toLocaleDateString() %>
+          </div>
+          <div class="card-text mb-2"><%= article.hadi %></div>
+          <div class="card-text mb-2"><%= article.detay %></div>
+
+          <a href="articles/<%= article.slug %>" class="btn btn-primary">İletişim</a>
+          <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+          </form>
+        </div>
+      </div>
+    <% }) %>
+   
+  </div>
+  <div class="footer" style="font-size: 20px;font-weight: 500;">
+    Kanbul.com KAN BAĞIŞI ORGANİZASYONU YAPMAZ. SADECE KİŞİLER ARASINDA İLETİŞİM SAĞLAR.
+  </div>
+</body>
+</html>
