@@ -1,5 +1,4 @@
 # Kanbul
-Not yet completed
 
 With node.js and express.js 
 
